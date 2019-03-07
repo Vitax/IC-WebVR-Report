@@ -1,0 +1,90 @@
+\documentclass[ a4paper 11pt oneside onecolumn final openany ]{report}
+
+\usepackage[left=3cm, right=3cm, top=3cm]{geometry}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[pdftex]{hyperref}
+
+\usepackage{svg}
+\usepackage{listings}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subfiles}
+\usepackage{blindtext}
+\usepackage{caption}
+\usepackage{subfigure}
+
+% remove the "chapter x" suffix
+\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Huge}
+
+\graphicspath{{images}{./images/}}
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  frame=single,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+
+\begin{document}
+
+    \begin{titlepage}
+        \begin{center}
+            \includegraphics[width=0.5\textwidth]{htw-logo.jpg}\par\vspace{1cm}
+            \vspace{1cm}
+            {\scshape\Large Independent Course work Report\par}
+
+            \vspace{1.5cm}
+            {\Large\bfseries Visualize Data in WebVR }
+
+            \vspace{2cm}
+            {\Large\itshape Caglar Özel\par}
+
+            \vfill
+
+            supervised by\par
+            Prof.\ Dr.\ Klaus\ Busch
+            \vfill
+        \end{center}
+    \end{titlepage}
+
+    \pagenumbering{gobble}
+    \tableofcontents
+
+    \newpage
+
+    \pagenumbering{arabic}
+    \chapter{Abstract}
+    \subfile{sections/abstract.tex}
+
+    \chapter{Introduction}
+    \subfile{sections/introduction.tex}
+
+    \chapter{Virtual Reality}
+    \subfile{sections/virtual_reality.tex}
+
+    \chapter{AFrame}
+    \subfile{sections/aframe.tex}
+
+    \chapter{Application \& Server}
+    \subfile{sections/application.tex}
+
+    \chapter{Conclusion}
+    \subfile{sections/conclusion.tex}
+
+    \newpage
+    \pagenumbering{gobble}
+
+    \bibliographystyle{unsrt}
+    \bibliography{references}
+
+    \chapter{Appendix}
+    \subfile{sections/appendix.tex}
+
+\end{document}
