@@ -1,10 +1,14 @@
-\documentclass[ a4paper 11pt oneside onecolumn final openany ]{report}
+\documentclass[a4paper, 11pt, oneside, onecolumn, final, openany]{report}
 
-\usepackage[left=3cm, right=3cm, top=3cm]{geometry}
-\usepackage[english]{babel}
+% Setup geometry of the Page
+\usepackage{geometry}
+\geometry{left=3cm, right=3cm, top=3cm, bottom=3cm}
+
+% Set language and character encoding of document
+\usepackage[german]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage[pdftex]{hyperref}
 
+\usepackage[pdftex]{hyperref}
 \usepackage{svg}
 \usepackage{listings}
 \usepackage{pgfplots}
@@ -19,7 +23,7 @@
 \usepackage{caption}
 \usepackage{subfigure}
 
-% remove the "chapter x" suffix
+% Remove the "chapter x" suffix
 \titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Huge}
 
 \graphicspath{{images}{./images/}}
@@ -38,10 +42,10 @@
         \begin{center}
             \includegraphics[width=0.5\textwidth]{htw-logo.jpg}\par\vspace{1cm}
             \vspace{1cm}
-            {\scshape\Large Independent Course work Report\par}
+            {\scshape\Large Independent Coursework Bericht\par}
 
             \vspace{1.5cm}
-            {\Large\bfseries Visualize Data in WebVR }
+            {\Large\bfseries Datanvisualiserung über WebVR  }
 
             \vspace{2cm}
             {\Large\itshape Caglar Özel\par}
@@ -60,22 +64,22 @@
     \newpage
 
     \pagenumbering{arabic}
-    \chapter{Abstract}
+    \chapter{Abstrakt}
     \subfile{sections/abstract.tex}
 
-    \chapter{Introduction}
+    \chapter{Einführung}
     \subfile{sections/introduction.tex}
 
     \chapter{Virtual Reality}
     \subfile{sections/virtual_reality.tex}
+    
+    \chapter{Daten Visualisierung}
+    \subfile{sections/data_visualization.tex}
 
-    \chapter{AFrame}
-    \subfile{sections/aframe.tex}
-
-    \chapter{Application \& Server}
+    \chapter{Applikation \& Server}
     \subfile{sections/application.tex}
 
-    \chapter{Conclusion}
+    \chapter{Fazit}
     \subfile{sections/conclusion.tex}
 
     \newpage
