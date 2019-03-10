@@ -1,3 +1,24 @@
 \begin{document}
+Nach der Analyse von verschiedenen Visualisierungsmethodiken musste der Umfang und die Komplexität der Applikation bestimmt werden.
+Folgende Kriterien wurden festgelegt:
+\begin{itemize}
+    \item Visualisierung sollte unspezifisch auf Daten funktionieren
+    \item Benutzer sollte in der Lage sein, die Struktur des Grafen selbst zu bestimmen
+    \item 3D Welt sollte ohne weitere Benutzer Interaktion generiert werden
+\end{itemize}
+Des weiteren wurde festgelegt, das die Webseite mit dem Framework ReactJS und der Server der die Webseite veröffentlichen würde mit NodeJS geschrieben
+wird.
+
+\section{Server}
+Die Entscheidung einen Server zu schreiben hat mehrere Gründe auf die ich in diesem Kapitel kurz eingehen werde. \\ \\
+Einer der Gründe ist das die Anwendung über einen Server veröffentlicht werden muss um im besten Fall diesen auf einen herkömmlichen Server im
+Internet hochladen zu können. Ein weiterer Grund war, das in dem Design Prozess die Idee existierte, einen MongoDB Server über Docker Instanz
+zu verwalten. Dieser würde die Datenstruktur, die Ausgewählt und Generiert wurde, abspeichern und zur abfrage jederzeit bereit halten. \\ \\
+Wie sich später auch herausstelle wäre der finale Grund den Server zu verwenden, das Browser einen lokalen Cache Limit haben. Somit können
+größere Dateien (500 MB und größer) nicht mehr direkt vom Browser verarbeitet werden. Diese müssten in einer produktiv Umgebung erstmal auf
+den Server hochgeladen. Dort analysiert, verarbeitet und umgewandelt werden, und zu guter Letzt wieder zu der Anwendung zurück geschickt
+werden.
+
+\section{Applikation}
 
 \end{document}
