@@ -18,7 +18,41 @@ Wie sich später auch herausstelle wäre der finale Grund den Server zu verwende
 größere Dateien (500 MB und größer) nicht mehr direkt vom Browser verarbeitet werden. Diese müssten in einer produktiv Umgebung erstmal auf
 den Server hochgeladen. Dort analysiert, verarbeitet und umgewandelt werden, und zu guter Letzt wieder zu der Anwendung zurück geschickt
 werden.
-
+\newpage
 \section{Applikation}
+Basierend auf den Kriterien wurde die Funktionalität der Anwendung in drei Abschnitte unterteilt.
+\begin{itemize}
+    \item Anzeige \& Konfiguration
+    \item Analyse
+    \item Welt Generierung
+\end{itemize}
+Zu dem musste ich mir in diesem Stadium schon Gedanken machen wie meine Daten in der Praxis aussehen würden also wurde Datenquellen wie
+imdb angeschaut. Worauf hin fest gestellt wurde das der größte Teil von solchen Daten im CSV, TSV oder JSON Format ausgehändigt werden. Mit
+diesem Wissen ging ich an die Logik ran diese Daten anzuzeigen und zu konfigurieren.
 
+\subsection{Anzeige \& Konfiguration}
+Die Anzeige \& Konfiguration der Daten wird wiederum über drei Schritte absolviert. Zuerst muss eine valide csv, tsv oder json (json in einer
+flachen Hierarchie) ausgewählt werden.
+\begin{lstlisting}
+                                Beispiel JSON
+{
+    {
+        id: "0",
+        title: "Geschichte des VR",
+        author: "Walter Guenther",
+        veroeffentlicht: "1996"
+    },
+    {
+        id: "1",
+        title: "Datenvisualisierung 101",
+        author: "Peter Watson",
+        veroeffentlicht: "2001"
+    }
+}
+\end{lstlisting}
+Diese Datei verarbeite ich un visualiese dem Benuzter was für ein Inhalt er in der Datei hat und wie Daten ungefähr aussehen.
+% take screenshot of application here
+%\begin{center}
+    %\includegraphcis[width=0.5\textwidth]{}
+%\end{center}
 \end{document}
