@@ -6,8 +6,41 @@ Folgende Kriterien wurden festgelegt:
     \item Benutzer sollte in der Lage sein, die Struktur des Grafen selbst zu bestimmen
     \item 3D Welt sollte ohne weitere Benutzer Interaktion generiert werden
 \end{itemize}
-Des weiteren wurde festgelegt, das die Webseite mit dem Framework ReactJS und der Server der die Webseite veröffentlichen würde mit NodeJS geschrieben
-wird.
+Des weiteren wurde festgelegt, das die Webseite mit dem Framework ReactJS, das zeichnen und erstellen der 3D Welt mit dem Framework
+AFrame und der Server der die Webseite veröffentlicht mit NodeJS geschrieben wird. \\
+Die Applikation wird anhand des Package Managers ''npm'' aufgesetzt.
+
+\section{Installieren, Transpilieren des Client \& Starten des Server}
+Da die Applikation über den PackageManager npm verwaltet und aufgesetzt wird, ist die Applikation namentlich in zwei Ordner unterteilt.
+\begin{itemize}
+    \item Server
+    \item Client
+\end{itemize}
+Diese beinhalten je eine tsconfig.json und package.json und im falle des Client eine webpack.config.js.
+\begin{itemize}
+    \item package.json \\ \\
+        Die package.json beinhaltet alle Abhängigkeiten des Clients und Servers. Man muss diese über den Befehl ''npm install''
+        sowohl für den Server als auch für den Client installieren.
+    \newpage
+    \item client: webpack.config.js \\ \\
+        Webpack ist ein Modul welches mehrere JavaScript Dateien, in eine große JavaScript Datei bündelt. Der Zweck hiervon ist das man
+        diese Einfach in einem Browser einbinden kann. \\
+        Um einen Prozess zu haben der Konsequent die Dateien überwacht (develop server), muss man den Befehl ''npm start-watch'' Ausführen. Dieser startet intern
+        zwei Prozesse die Asynchrone laufen. Der Prozess ''webpack --watch'' welches die Typescript Dateien in JavaScript transpiliert und der Befehl
+        ''node-sass --watch ...'' welches die Stylesheets kompiliert.
+        Um nur einmal für einen Release zu bauen reicht der Befehl, ''npm run start-build'' aus.
+    \item server starten \\ \\
+        Der Server wie beschrieben ist ein NodeJS Server und kann unter dem Server Ordner mit dem Befehl, ''npm run prod'' gestartet werden.
+        Man bedenke das vorher der Client mindestens einaml über den befehlt ''npm run start-build'' transpiliert werden muss, oder ein laufender
+        build Server über den Befehl ''npm start'' existieren sollte. \\
+        Der Server holt sich momentan nur die Client Dateien und leitet diese zum Browser weiter. Mögliche und erstrebenswerte Erweiterungen
+        sind die Verarbeitung von den Dateien auf der Server-seite (hebt das Limit der Datensatzgröße auf) und ein Anbindung an eine
+        Datenbank welches die Daten beinhalten könnte.
+    \item tsconfig.json \\ \\
+        Die tsconfig.json beschreibt dem TSServer der die Typescript Dateien überwacht, nach welchen Standards sie geschrieben werden
+        müssen.
+\end{itemize}
+\newpage
 
 \section{Server}
 Die Entscheidung einen Server zu schreiben hat mehrere Gründe auf die ich in diesem Kapitel kurz eingehen werde. \\ \\
@@ -19,6 +52,7 @@ größere Dateien (500 MB und größer) nicht mehr direkt vom Browser verarbeite
 den Server hochgeladen. Dort analysiert, verarbeitet und umgewandelt werden, und zu guter Letzt wieder zu der Anwendung zurück geschickt
 werden.
 \newpage
+
 \section{Applikation}
 Basierend auf den Kriterien wurde die Funktionalität der Anwendung in drei Abschnitte unterteilt.
 \begin{itemize}
@@ -35,7 +69,7 @@ Die Anzeige \& Konfiguration der Daten wird wiederum über drei Schritte absolvi
 flachen Hierarchie) ausgewählt werden.
 \begin{lstlisting}
                                 Beispiel JSON
-{
+[
     {
         id: "0",
         title: "Geschichte des VR",
@@ -48,11 +82,61 @@ flachen Hierarchie) ausgewählt werden.
         author: "Peter Watson",
         veroeffentlicht: "2001"
     }
-}
+]
 \end{lstlisting}
-Diese Datei verarbeite ich un visualiese dem Benuzter was für ein Inhalt er in der Datei hat und wie Daten ungefähr aussehen.
-% take screenshot of application here
-%\begin{center}
-    %\includegraphcis[width=0.5\textwidth]{}
-%\end{center}
+\newpage \noindent
+Falls eine CSV oder TSV Datei ausgewählt wurde, wird dieser intern verarbeitet und anhand eines D3 Moduls umgewandelt. Ein teil des Inhaltes wird
+dem Benutzer veranschaulicht. In diesem Beispiel verwenden wir den Datensatz von imdb und zeigen dem Benutzer die ersten 10 Einträge mit allen
+vorhandenen Attributen und ihren zugehörigen Werten an.
+\begin{center}
+    \includegraphics[width=0.75\textwidth]{File-Selection.png}
+    \includegraphics[width=0.75\textwidth]{File-Content.png} \\
+\end{center}
+Hiernach wird dem Benutzer die Option angeboten, ein primären und sekundären Parameter auszuwählen. Des weiteren können weitere Werte definiert
+werden die im sekundären Knoten visualisiert werden.
+\begin{center}
+    \includegraphics[width=0.75\textwidth]{Configuration-Part.png} \\
+\end{center}
+Diese Attribute werden verwendet und eine Parent, Child Hierarchie zu erstellen. 
+Wenn man nur die oben ersehbaren Daten in Betracht zieht. Wird nach der Auswahl von den Attributen, eine interne Datenstruktur generiert
+die visuell Dargestellt wie Folgt aussieht.
+\begin{center}
+    \includegraphics[width=1\textwidth]{Internal-Datastructure.png}\label{setup_data} \\
+\end{center}
+
+\newpage
+\subsection{Visualisierung der Daten}
+Mit dem Klick auf ''Create VR World'' werden die Daten an eine Scene weitergeleitet, womit anhand des Frameworks A-Frame eine 3D Welt
+generiert wird. Bei der Generierung dieser Welt musste Probleme wie übersicht der Daten und größe der Welt beachtet werden. \\
+Wenn die Datensätze sehr groß sind, wird die Welt dementsprechend groß. Um dieses zu vermeiden wird der Datensatz vor der Welt Generierung
+in kleine Portionen von 30 Objekten unterteilt. Heißt wenn der Datensatz 200 Objekte beinhaltet wird dieses in sieben Teile unterteilt.
+Durch diesen Schritt wird die Performanz der Anwendung gesteigert und die übersicht der Daten verbessert. \\
+Eine zirkuläre Verteilung der Haupt- und Unterknoten wird in diesem Projekt als die Hauptmethode definiert.  Um hierfür eine sinnvolle
+Verteilung der Daten zu erreichen, wird dynamisch für jeden Hauptknoten, ein Position in einem Radius abhängig von der größe der Sektion
+ermittelt.
+\begin{center}
+    \begin{equation*}
+        position=
+        \begin{bmatrix}
+            radius * Math.cos((index / length) * 2 * Math.PI) \\
+            y \\
+            radius * Math.sin((index / length) * 2 * Math.PI)
+        \end{bmatrix}
+    \end{equation*}
+\end{center}
+Dies führt dazu das die Knoten, egal wie viele, gleichmäßig in einem Kreis verteilt sind. Die selbe Formel wird zur Berechnung der
+positionen der Unterknoten verwendet, jedoch werden diese relative zur Wurzel verschoben. \\
+Bei den Unterknoten werden, um die Übersicht zu steigern, ebenfalls Untergruppen erzeugt und auf der y-Achse gestapelt. Gleichzeitig werden
+diese zuerst versteckt gezeichnet und müssen über die Interaktion mit dem Hauptknoten eingeblendet werden.
+\begin{center}
+    \includegraphics[width=1\textwidth]{3D-visualization.png}
+\end{center}
+
+\newpage
+\subsection{Interaktion mit der Welt}
+Für die Interaktion in der Applikation wurden eigene Events definiert und geschrieben. Um zum Beispiel unterknoten Einzublenden, muss auf
+den Hauptknoten geklickt oder per Controller X(Playstation) oder A(XBox) gedrückt werden.
+Man kann die Kamera im VR und Normal Modus per Controller oder Tastatur (wasd) steuern. Die Steuerung per Controller geschieht wie gewohnt
+mit dem linken Stick, wobei die Höhe der Kamera mit der vorderen rechten (senken) und linken (erhöhen) Schulter taste gesteuert wird. Das wechseln von Scenen /
+Sektionen geschieht über das Drücken des linken und rechten Analog tasten, links fürs nächstes- und rechts für vorherige Scene.
 \end{document}
