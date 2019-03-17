@@ -4,8 +4,8 @@ Iterationen, welche verschiedene Versionen und Varianten der Technik für die vi
 Das Konzept der virtuellen Welt wurde vermutlich zum ersten mal im Jahre 1935 vom schriftsteller Stanley Weinbaum in der Science Fiction
 Story ''Pygmalion's Spectacles'' beschrieben.\\ 
 Schon in dieser Geschichte verwendete der Hauptcharakter, eine Brille um in eine virtuelle Welt zu gelangen, wo seine Handlungen
-und Gefühle von und auf die reale Welt simuliert wurden. Dieses beschrieb relative akkurat wie Vorstellung und Visionen in der Zukunft seien
-würden.\cite{virtualrealityhistory}\\ \\
+und Gefühle von und auf die reale Welt simuliert wurden. Dieses beschrieb relative akkurat welche Vorstellung und Visionen man
+hatte.\cite{virtualrealityhistory}\\ \\
 Es folgten eine reihe von Iterationen über die Jahrzehnte, welche den Werdegang der VR Brille von heute definierte. \\ \\
 Somit wurde im Jahre 1956 von Morton Heilig die ''Senorama'' gebaut, welches man als die erste VR Maschine betrachten kann. Es bündelte
 mehrere Technologien um alle Sinne des Benutzers zu Stimulieren. Für dieses Gerät wurden vier Filme gedreht, welches zu diesem Zeitpunkt
@@ -18,20 +18,20 @@ als die Zukunft des Kinos betrachtet wurde.\cite{virtualrealityhistory} \\
 Funktion der Ausgabe von 3D Bildern und hatte eine Stereo Ausgabe. Dieses gerät verfügte jedoch noch nicht über die Funktion der
 Bewegungsverfolgung, welches mit dem Gerät ''Headsight'' von Ceomeau und Bryen zwei Philco Corporation Ingenieuren kam. Es
 verfügte über die Funktion der Bewegungsverfolgung des Kopfes. Dieses Gerät wurde nicht als VR Brille verwendet, sondern für das
-Militär entwickelt welches diese Technologie als fern Steuerung von Kameras in Regionen mit Risiken verwendete.\cite{virtualrealityhistory}\\
+Militär entwickelt welches diese Technologie als fern Steuerung von Kameras in riskanten Kriegsregionen verwendete.\cite{virtualrealityhistory}\\
 Ivan Sutherland welcher Informatiker im Jahre 1965 war, veröffentlichte ein Paper namens Ultimate Display. In diesem beschrieb er
 das Computer Hardware die virtuelle Welt erstellen und in Echtzeit verwalten sollte. Sein
 \href{http://worrydream.com/refs/Sutherland%20-%20The%20Ultimate%20Display.pdf}{Paper} welches er veröffentliche wird als der Bauplan 
 von heutigen VR Brillen gesehen.\cite{virtualrealityhistory}\\
-Von diesem Zeitpunkt wurden die ersten HMD mit dem Fokus auf virtuelle Welten entwickelt. Das Gerät ''The Sword
-of Damacles'' welches im Jahre 1968 erschien, wurde trotz seiner Fähigkeit 3D Drahtgittermodelle abhängig von der Position des Benutzers
+Ab diesem Zeitpunkt wurden die ersten HMD mit dem Fokus auf virtuelle Welten erfunden. Das Gerät ''The Sword
+of Damacles'' welches im Jahre 1968 erschien, wurde trotz seiner Fähigkeit 3D Modelnetze abhängig von der Position des Benutzers
 anzuzeigen, wegen seiner Größe und Notwendigkeit an einer Decke montiert zu sein nicht weiter als im Labor
 entwickelt.\cite{virtualrealityhistory} \\
 \begin{center}
     \includegraphics[width=0.75\textwidth]{sword-of-damacles.jpg}\cite{swordofdamacles}
 \end{center}
 Schon zu diesem Zeitpunkt experimentierte man damit, VR für Trainingsimulationen und Medizinischen Behandlungen zu verwenden. \\ 
-Im Jahre 1979 von McDonnel-Douglas Corporation ein HMD für den militärischen Gebrauch entwickelt. Dieses Gerät war in der
+Es wurde im Jahre 1979 von McDonnel-Douglas Corporation ein HMD für den militärischen Gebrauch entwickelt. Dieses Gerät war in der
 Lage die Augen des Benutzers zu verfolgen um Bilder in Echtzeit passend zum Blickwinkel des Tragenden zu generieren.\cite{virtualrealityhistory}
 \begin{center}
     \includegraphics[width=0.5\textwidth]{VITAL-helmet-vr.jpg}\cite{vitalhelmet}
@@ -41,7 +41,7 @@ Ebenso wurde im Jahre 1989 von der Nasa ein HMD entwickelt, um Astronauten anhan
 \begin{center}
     \includegraphics[width=0.5\textwidth]{virtual-environment-workstation-project-nasa.jpg}\cite{nasahelmet}
 \end{center}
-Einen Medizinischen Gebrauch fand VR im Jahre 1997 durch die Georgia Tech und Emory University, welche den gebrauch von VR im
+Einen Medizinischen gebraucht fand VR im Jahre 1997 durch die Georgia Tech und Emory University, welche den gebrauch von VR im
 Posttraumatischen Belastungsstörungen für Veteranen erforschten. Hier wurden Kriegsszenarien simuliert welche Virtual Vietnam benannt. Diese
 wurden verwendet um diese Symptome zu behandeln.\\ \\ 
 Links zu Berichten die zu dieser Behandlung veröffentlicht wurden:
